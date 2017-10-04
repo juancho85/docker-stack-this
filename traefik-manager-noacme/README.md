@@ -34,7 +34,7 @@ cd docker-stack-this;
 
 # Bypass if you are looking for the stable stack  
 # else select a branch
-git checkout 1.17;
+git checkout 1.18;
 
 # Go to the actual project
 cd traefik-manager-noacme;
