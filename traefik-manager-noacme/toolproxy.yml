@@ -43,9 +43,8 @@ services:
     container_name: prom_caddy
     ports:
       - "8080:8080"
-    expose:
-      - "443"
-      - "80"
+      - "9443:443"
+      - "9080:80"
     volumes:
       - ./caddy/:/etc/caddy/
     environment:
