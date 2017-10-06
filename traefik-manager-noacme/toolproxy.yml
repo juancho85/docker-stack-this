@@ -11,8 +11,7 @@ services:
       - --web
     ports:
       - "80:80"
-    expose:
-      - "8080"
+      - "8181:8080"
     networks:
       - ntw_front
     volumes:
@@ -37,24 +36,6 @@ services:
         reservations:
           cpus: '0.05'
           memory: 64M
-
-  caddy:
-    image: stefanprodan/caddy
-    container_name: prom_caddy
-    ports:
-      - "8080:8080"
-      - "9443:443"
-      - "9080:80"
-    volumes:
-      - ./caddy/:/etc/caddy/
-    environment:
-      - ADMIN_USER=${ADMIN_USER:-admin}
-      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
-    restart: unless-stopped
-    networks:
-      - ntw_front
-    labels:
-      org.label-schema.group: "monitoring"
 
 networks:
   ntw_front:

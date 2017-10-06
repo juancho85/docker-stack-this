@@ -34,7 +34,7 @@ echo; echo; sleep 2
 echo "Start the stacks ..."; echo; echo;
 
 # traefik
-ADMIN_USER=admin ADMIN_PASSWORD=changeme docker stack deploy toolproxy -c toolproxy.yml
+docker stack deploy toolproxy -c toolproxy.yml
 echo; echo; sleep 2
 
 # webapps

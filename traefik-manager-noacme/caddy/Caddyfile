@@ -1,9 +1,0 @@
-:8080 {
-    basicauth / {$ADMIN_USER} {$ADMIN_PASSWORD}
-    proxy / traefik:8080 {
-            transparent
-        }
-
-    errors stderr
-    tls off
-}
