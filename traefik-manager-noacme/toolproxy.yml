@@ -11,6 +11,7 @@ services:
       - --web
     ports:
       - "80:80"
+    expose:
       - "8080"
     networks:
       - ntw_front
