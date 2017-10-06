@@ -1,6 +1,6 @@
 :8080 {
     basicauth / {$ADMIN_USER} {$ADMIN_PASSWORD}
-    proxy / alertmanager:8080 {
+    proxy / traefik:8080 {
             transparent
         }
 
