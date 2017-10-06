@@ -1,0 +1,10 @@
+:8080 {
+    basicauth / {$ADMIN_USER} {$ADMIN_PASSWORD}
+    proxy / alertmanager:8080 {
+            transparent
+        }
+
+    errors stderr
+    tls off
+}
+
