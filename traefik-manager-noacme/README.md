@@ -1,17 +1,9 @@
 ## Introduction
-This project will run those services in just one copy paste command:
+This project will run those services (Traefik, Portainer, Nginx, Caddy, Whoami, WordPress) in one simple copy-paste command:
 
-- Traefik
-- Portainer
-- WordPress
-- Nginx
-- Caddy
-- Whoami
-
-#### What’s special about this directory
-This stack does not use ACME (TLS).
-
-I decided to work on this as I still have issues in the project `traefik-manager` which use ACME. 
+#### Anything special about this mono repo?
+- This stack does not use ACME (TLS).
+- I decided to work on this as I still have issues in the project `traefik-manager` which use ACME. 
 
 ## Time to deploy
 1. Go to http://labs.play-with-docker.com/ 
@@ -20,7 +12,7 @@ I decided to work on this as I still have issues in the project `traefik-manager
 
 ```
 # Create Swarm
-docker swarm init --advertise-addr eth0;
+docker swarm init --advertise-addr eth0; docker node ls;
 
 # Install common apps
 apk update && apk upgrade && apk add nano curl bash git wget unzip ca-certificates;
@@ -30,23 +22,16 @@ cd /root;
 git clone https://github.com/pascalandy/docker-stack-this.git;
 cd docker-stack-this;
 
-# Bypass if you are looking for the stable stack  
-# else select a branch
+# Select a branch 
 git checkout 1.18;
 
 # Go to the actual project
-cd traefik-manager-noacme;
-echo; pwd; echo; ls -AlhF; echo; du -sh *; echo; du -sh;
+cd traefik-manager-noacme; echo; pwd; echo; ls -AlhF;
 
-# Make script executable
-chmod +x runup;
-chmod +x rundown;
-chmod +x runctop;
+# Make scripts executable
+chmod +x runup; chmod +x rundown; chmod +x runctop;
 
-# List nodes
-docker node ls;
-
-# Launch all services
+# Run the stack
 ./runup;
 ```
 
