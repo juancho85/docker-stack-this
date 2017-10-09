@@ -61,9 +61,10 @@ http://pwd10-0-7-3-80.host1.labs.play-with-docker.com/portainer/
 - **who1/** = [nginx](https://hub.docker.com/_/nginx/)
 - **who2/** = [whoami](https://hub.docker.com/r/emilevauge/whoami/)
 - **portainer/** = [portainer](https://hub.docker.com/r/portainer/portainer//)
-- **wordpress/** = [wordpress](https://hub.docker.com/_/wordpress/)
 
 There is an [issue](https://github.com/pascalandy/docker-stack-this/issues/8) about wordpress.
+
+- **wordpress/** = [wordpress](https://hub.docker.com/_/wordpress/)
 
 #### All commands
 In the active path, just execute those bash-scripts:
