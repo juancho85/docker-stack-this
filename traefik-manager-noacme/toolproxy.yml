@@ -11,7 +11,7 @@ volumes:
 
 services:
   socat:
-    image: rancher/socat-docker
+    image: devmtl/socatproxy:edge_2017-10-09_19H28
     networks:
       - ntw_front
     volumes:
