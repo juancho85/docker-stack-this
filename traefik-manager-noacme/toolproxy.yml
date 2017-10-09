@@ -46,15 +46,15 @@ services:
     #volumes:
     #  - traefik-pub:/etc/traefik/acme
     command: --docker \
-      --docker.swarmmode=true \
+      --docker.swarmmode \
       --docker.endpoint=tcp://socat:2375 \
       --docker.domain=traefik \
-      --docker.watch=true
+      --docker.watch \
       --docker.exposedbydefault=false \
-      --entryPoints='Name:http,https' \
-      --debug=true \
+      --entryPoints='Name:http' \
+      --debug \
       --loglevel=DEBUG \
-      --compress=true \
+      --compress \
       --web
       #--acme.entrypoint=https \
       #--acme=true \
