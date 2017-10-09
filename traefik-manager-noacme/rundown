@@ -14,7 +14,7 @@ docker stack rm proxfic || true; echo; sleep 1;
 
 docker stack rm proxweb || true; echo; sleep 1;
 
-docker stack rm proxpress || true; echo; sleep 1;
+#docker stack rm proxpress || true; echo; sleep 1;
 
 docker stack rm proxymon || true; echo; sleep 1;
 

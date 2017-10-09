@@ -42,8 +42,8 @@ docker stack deploy proxweb -c toolweb.yml
 echo; echo; sleep 2
 
 # wordpress
-docker stack deploy proxpress -c toolwordpress.yml
-echo; echo; sleep 2
+#docker stack deploy proxpress -c toolwordpress.yml
+#echo; echo; sleep 2
 
 # portainer
 docker stack deploy proxymon -c toolportainer.yml
