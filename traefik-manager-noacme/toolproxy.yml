@@ -1,7 +1,5 @@
 version: "3.3"
 
-
-
 networks:
   ntw_front:
     external: true
