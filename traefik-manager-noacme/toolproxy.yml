@@ -48,10 +48,9 @@ services:
     command: --docker \
       --docker.swarmmode \
       --docker.endpoint=tcp://docker-proxy:2375 \
-      --docker.domain='${CLUSTER_PUBLIC_DOMAIN}' \
+      --docker.domain=traefik \
       --docker.watch \
-      --entryPoints='Name:https Address::443 TLS' \
-      --entryPoints='Name:http Address::80' \
+      --entryPoints='Name:http' \
       --web
       #--acme.entrypoint=https \
       #--acme=true \
