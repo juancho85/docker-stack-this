@@ -11,11 +11,11 @@ volumes:
 
 services:
   socat:
-    image: devmtl/socatproxy:edge_2017-10-09_19H28
+    image: devmtl/socatproxy:1.0A
     networks:
       - ntw_front
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock:ro
     deploy:
       mode: replicated
       replicas: 1
