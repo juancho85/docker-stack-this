@@ -61,6 +61,7 @@ services:
       #--acme.ondemand=true \
       #--acme.onhostrule=true \
       #--acme.storage=/etc/traefik/acme/acme.json \
+      #
     deploy:
       mode: replicated
       replicas: 1
