@@ -50,9 +50,9 @@ services:
       --docker.endpoint=tcp://socat:2375 \
       --docker.domain=traefik \
       --docker.watch=true \
-      --exposedbydefault=false \
       --entryPoints='Name:http' \
       --compress=true \
+      --exposedbydefault=false \
       --debug=true \
       --logLevel=DEBUG \
       --web
