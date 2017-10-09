@@ -32,7 +32,7 @@ services:
           memory: 8M
 
   traefik-pub:
-    image: traefik:1.3.8-alpine
+    image: traefik:1.4.0-rc4
     networks:
       - ntw_front
     ports:
@@ -43,8 +43,8 @@ services:
       #  target: 443
       #  published: 443
       - "8080:8080"
-    volumes:
-      - traefik-pub:/etc/traefik/acme
+    #volumes:
+    #  - traefik-pub:/etc/traefik/acme
     command: --docker \
       --docker.swarmmode \
       --docker.endpoint=tcp://socat:2375 \
