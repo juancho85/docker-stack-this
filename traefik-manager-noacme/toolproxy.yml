@@ -46,12 +46,15 @@ services:
     volumes:
       - traefik-pub:/etc/traefik/acme
     command: --docker \
-      --docker.swarmmode \
+      --docker.swarmmode=true \
       --docker.endpoint=tcp://socat:2375 \
       --docker.domain=traefik \
-      --docker.watch \
+      --docker.watch=true \
       --entryPoints='Name:http' \
+      --debug=true \
+      --logLevel=DEBUG \
       --web
+
       #--acme.entrypoint=https \
       #--acme=true \
       #--acme.domains='${CLUSTER_PUBLIC_DOMAIN}' \
