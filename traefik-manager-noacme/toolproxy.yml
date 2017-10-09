@@ -50,11 +50,12 @@ services:
       --docker.endpoint=tcp://socat:2375 \
       --docker.domain=traefik \
       --docker.watch=true \
+      --exposedbydefault=false \
       --entryPoints='Name:http' \
+      --compress=true \
       --debug=true \
       --logLevel=DEBUG \
       --web
-
       #--acme.entrypoint=https \
       #--acme=true \
       #--acme.domains='${CLUSTER_PUBLIC_DOMAIN}' \
