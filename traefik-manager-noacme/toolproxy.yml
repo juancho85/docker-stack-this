@@ -11,12 +11,12 @@ volumes:
   traefik-pub: {}
 
 services:
-  socat :
+  socat:
     image: rancher/socat-docker
     networks:
       - ntw_front
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /var/run/docker.sock:/var/run/docker.sock
     deploy:
       mode: replicated
       replicas: 1
@@ -43,18 +43,14 @@ services:
       #  target: 443
       #  published: 443
       - "8080:8080"
-    #volumes:
-    #  - traefik-pub:/etc/traefik/acme
+    volumes:
+      - traefik-pub:/etc/traefik/acme
     command: --docker \
       --docker.swarmmode \
       --docker.endpoint=tcp://socat:2375 \
       --docker.domain=traefik \
       --docker.watch \
-      --docker.exposedbydefault=false \
       --entryPoints='Name:http' \
-      --debug \
-      --loglevel=DEBUG \
-      --compress \
       --web
       #--acme.entrypoint=https \
       #--acme=true \
