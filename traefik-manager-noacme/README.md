@@ -1,5 +1,5 @@
 ## Introduction
-This project will run those services (Traefik, Portainer, Nginx, Caddy, Whoami, WordPress) in one simple copy-paste command.
+This project will run those services (Traefik, Portainer, Nginx, Caddy, Whoami) in one simple copy-paste command.
 
 #### Anything special about this mono repo?
 - This stack does not use ACME (TLS).
@@ -88,18 +88,12 @@ http://pwd10-0-7-3-80.host1.labs.play-with-docker.com/portainer/
 - **/who2/** = [whoami](https://hub.docker.com/r/emilevauge/whoami/)
 - **/portainer/** = [portainer](https://hub.docker.com/r/portainer/portainer//)
 
-There is an [issue](https://github.com/pascalandy/docker-stack-this/issues/8) about wordpress.
-
-- **/wordpress/** = [wordpress](https://hub.docker.com/_/wordpress/)
-
 #### All commands
 In the active path, just execute those bash-scripts:
 
 - `./runup`
 - `./rundown`
 - `./runctop`
-
-See for yourself that Wordpress data is persistent even after shutting down services.
 
 #### Bonus
 `./runctop` runs as a simple docker run to see the memory consumed by each services.

@@ -9,6 +9,7 @@
 - Traefik do not need a traefik.toml :)
 - Traefik do not need to mount any volumes!
 - clean up older file into DIR z-archive
+- Removed WordPress and Mysql
 
 # 1.18
 
