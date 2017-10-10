@@ -88,15 +88,15 @@ http://pwd10-0-7-3-80.host1.labs.play-with-docker.com/portainer/
 - **/who2/** = [whoami](https://hub.docker.com/r/emilevauge/whoami/)
 - **/portainer/** = [portainer](https://hub.docker.com/r/portainer/portainer//)
 
-#### All commands
+## All commands
 In the active path, just execute those bash-scripts:
 
 - `./runup`
 - `./rundown`
 - `./runctop`
+- `./runctop` 
 
-#### Bonus
-`./runctop` runs as a simple docker run to see the memory consumed by each services.
+`./runctop` is not a stack but a simple docker run to see the memory consumed by each containers.
 
 #### What is Traefik?
 [Traefik](https://docs.traefik.io/configuration/backends/docker/) is a powerful layer 7 reverse proxy. Once running, the proxy will give you access to many web apps. I think this is a solid use cases to understand how this reverse-proxy works.
