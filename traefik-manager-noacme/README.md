@@ -1,9 +1,10 @@
 ## Introduction
-This project will run those services (Traefik, Portainer, Nginx, Caddy, Whoami, WordPress) in one simple copy-paste command:
+This project will run those services (Traefik, Portainer, Nginx, Caddy, Whoami, WordPress) in one simple copy-paste command.
 
 #### Anything special about this mono repo?
 - This stack does not use ACME (TLS).
-- I decided to work on this as I still have issues in the project `traefik-manager` which use ACME. 
+- I decided to work on this as I still have issues in the project `traefik-manager` which use ACME.
+- See the [CHANGELOG.md](https://github.com/pascalandy/docker-stack-this/blob/master/CHANGELOG.md) at the root of this project.
 
 ## Time to deploy
 1. Go to http://labs.play-with-docker.com/ 
