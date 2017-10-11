@@ -13,7 +13,7 @@ services:
     command: traefik --consulcatalog.endpoint=consul:8500
     ports:
       - "8080:8080"
-      - "8081:80"
+      - "80:8000"
     depends_on:
       - consul
     links:
@@ -21,8 +21,8 @@ services:
 
   web-server:
     image: crccheck/hello-world
-    ports:
-      - "8000:8000"
+    expose:
+      - "8000"
     environment:
       - SERVICE_TAGS=traefik.enable=true,traefik.frontend.entryPoints=http,traefik.frontend.rule=Host:localhost
 
