@@ -8,7 +8,7 @@ cd /root;
 git clone https://github.com/pascalandy/docker-stack-this.git;
 cd docker-stack-this;
 
-#git checkout 1.21;
+git checkout 1.22;
 
 # Go to the actual project
 cd traefik-consul; echo; pwd; echo; ls -AlhF;
@@ -17,4 +17,4 @@ cd traefik-consul; echo; pwd; echo; ls -AlhF;
 chmod +x runup.sh; chmod +x rundown.sh;
 
 # Run the stack
-./runup;
+./runup.sh;
