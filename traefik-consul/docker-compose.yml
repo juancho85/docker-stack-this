@@ -1,7 +1,5 @@
 version: '2'
-
 services:
-
   consul:
     image: consul
     command: consul agent -server -dev -client=0.0.0.0 -ui -bootstrap -log-level warn
@@ -27,13 +25,6 @@ services:
       - "8000:8000"
     environment:
       - SERVICE_TAGS=traefik.enable=true,traefik.frontend.entryPoints=http,traefik.frontend.rule=Host:localhost
-
-  web-server2:
-    image: crccheck/hello-world
-    ports:
-      - "8000:8000"
-    environment:
-      - SERVICE_TAGS=traefik.enable=true,traefik.frontend.entryPoints=http,traefik.frontend.rule=PathPrefixStrip:hello
 
   registrator:
     depends_on:
