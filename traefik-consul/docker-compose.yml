@@ -24,7 +24,7 @@ services:
     environment:
       - SERVICE_TAGS=traefik.enable=true,traefik.frontend.entryPoints=http,traefik.frontend.rule=Host:localhost
 
-registrator:
+  registrator:
     depends_on:
       - consul
     image: gliderlabs/registrator:master
