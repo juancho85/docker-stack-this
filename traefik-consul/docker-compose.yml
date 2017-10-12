@@ -13,7 +13,7 @@ services:
     command: traefik --consulcatalog.endpoint=consul:8500
     ports:
       - "8080:8080"
-      - "80:2015"
+      - "80:80"
     depends_on:
       - consul
     links:
