@@ -21,10 +21,8 @@ services:
 
   web-server:
     image: crccheck/hello-world
-    expose:
-      - "8000"
     environment:
-      - SERVICE_TAGS=traefik.enable=true,traefik.frontend.entryPoints=http,traefik.frontend.rule=Host:localhost
+      - SERVICE_TAGS=traefik.enable=true,traefik.frontend.entryPoints=http,traefik.frontend.rule=Host:localhost,traefik.port=8000
 
   registrator:
     depends_on:
