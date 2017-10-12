@@ -13,18 +13,11 @@ services:
     command: traefik --consulcatalog.endpoint=consul:8500
     ports:
       - "8080:8080"
-      - "8081:80"
+      - "80:80"
     depends_on:
       - consul
     links:
       - consul
-
-  web-server:
-    image: crccheck/hello-world
-    ports:
-      - "8000:8000"
-    environment:
-      - SERVICE_TAGS=traefik.enable=true,traefik.frontend.entryPoints=http,traefik.frontend.rule=Host:localhost
 
   registrator:
     depends_on:
@@ -35,3 +28,17 @@ services:
       - /var/run/docker.sock:/tmp/docker.sock
     links:
       - consul
+
+  home:
+    image: abiosoft/caddy
+    volumes:
+      - ./www/home/srv/:/srv/
+    labels:
+      - "traefik.backend=home"
+      - "traefik.frontend.rule=PathPrefixStrip:/"
+      - "traefik.port=2015"
+      - "traefik.enable=true"
+      - "traefik.backend.loadbalancer.method=drr"
+      - "traefik.frontend.entryPoints=http"
+      - "traefik.docker.network=ntw_front"
+      - "traefik.weight=10"
