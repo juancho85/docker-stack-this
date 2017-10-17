@@ -21,7 +21,7 @@ services:
       - 80:80
       - 8080:8080
     networks:
-      - net_front
+      - ntw_front
     configs:
       - source: traefik.toml
         target: /etc/traefik/traefik.toml
