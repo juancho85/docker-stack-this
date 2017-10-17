@@ -34,19 +34,6 @@ services:
 
   traefik:
     image: traefik:1.4.0-alpine
-    command: --docker \
-      --docker.swarmmode \
-      --docker.domain=traefik \
-      --docker.endpoint=tcp://socat:2375 \
-      --docker.watch \
-      --debug=true \
-      --logLevel=WARN \
-      --web \
-      --web.metrics.prometheus \
-      --web.metrics.prometheus.buckets="0.1,0.3,1.2,5.0" \
-      --web.address=:8080
-    #volumes:
-    #  - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - mode: ingress
         published: 80
@@ -59,9 +46,18 @@ services:
     configs:
       - source: traefik.toml
         target: /etc/traefik/traefik.toml
+    command: --docker \
+      --docker.swarmmode \
+      --docker.domain=traefik \
+      --docker.endpoint=tcp://socat:2375 \
+      --docker.watch \
+      --debug=true \
+      --logLevel=WARN \
+      --web \
+      --web.metrics.prometheus \
+      --web.metrics.prometheus.buckets="0.1,0.3,1.2,5.0" \
+      --web.address=:8080
     deploy:
-      #labels:
-      #- "traefik.enable=false"
       mode: replicated
       replicas: 1
       update_config:
@@ -78,3 +74,10 @@ services:
         reservations:
           cpus: '0.05'
           memory: 64M
+
+#labels:
+#- "traefik.enable=false"
+#
+# by Pascal Andy | # https://twitter.com/askpascalandy
+# https://github.com/pascalandy/docker-stack-this
+#

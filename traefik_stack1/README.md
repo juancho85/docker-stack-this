@@ -16,13 +16,12 @@ This project will run those services (Traefik, Portainer, Nginx, Caddy, Whoami) 
 docker swarm init --advertise-addr $(hostname -i); docker node ls;
 # Install common apps
 apk update && apk upgrade && apk add nano curl bash git wget unzip ca-certificates;
-
 # Clone repo
 cd /root;
 git clone https://github.com/pascalandy/docker-stack-this.git;
 cd docker-stack-this;
+# Choose branch
 git checkout master;
-
 # Go to the actual project
 cd traefik_stack1; echo; pwd; echo; ls -AlhF;
 # Make scripts executable
