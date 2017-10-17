@@ -33,7 +33,7 @@ services:
         - "traefik.enable=false"
 
   traefik:
-    image: devmtl/traefikfire:edge_3790dd06a9a2e56120572fd012d1df582fec0b6c
+    image: devmtl/traefikfire:1.4.0A
     ports:
       - mode: ingress
         published: 80
