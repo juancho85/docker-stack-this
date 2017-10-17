@@ -9,6 +9,7 @@ configs:
     file: ./configs/traefik.toml
 
 services:
+
   traefik:
     image: traefik:1.4.0-alpine
     command: --docker \
@@ -21,6 +22,20 @@ services:
       --web.metrics.prometheus \
       --web.metrics.prometheus.buckets="0.1,0.3,1.2,5.0" \
       --web.address=:8080
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - mode: ingress
+        published: 80
+        target: 80
+      - mode: host
+        published: 8080
+        target: 8080
+    networks:
+      - ntw_front
+    configs:
+      - source: traefik.toml
+        target: /etc/traefik/traefik.toml
     deploy:
       #labels:
       #- "traefik.enable=false"
@@ -40,17 +55,3 @@ services:
         reservations:
           cpus: '0.05'
           memory: 64M
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    ports:
-      - mode: ingress
-        published: 80
-        target: 80
-      - mode: host
-        published: 8080
-        target: 8080
-    networks:
-      - ntw_front
-    configs:
-      - source: traefik.toml
-        target: /etc/traefik/traefik.toml
