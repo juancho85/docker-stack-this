@@ -9,7 +9,7 @@ cd docker-stack-this;
 git checkout 1.24;
 
 # Go to the actual project
-cd traefik-alt1; echo; pwd; echo; ls -AlhF;
+cd traefik_stack1; echo; pwd; echo; ls -AlhF;
 # Make scripts executable
 chmod +x runup; chmod +x rundown; chmod +x runctop;
 # Run the stack
