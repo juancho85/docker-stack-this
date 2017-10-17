@@ -1,0 +1,27 @@
+version: '3.3'
+
+networks:
+  ntw_front:
+    external: true
+
+configs:
+  traefik.toml:
+    file: ./configs/traefik.toml
+
+services:
+  traefik:
+    image: traefik:1.4.0-alpine
+    command: --docker --docker.swarmmode --docker.domain=${DOMAIN} --docker.watch --web --web.metrics.prometheus --web.metrics.prometheus.buckets="0.1,0.3,1.2,5.0"
+    deploy:
+      placement:
+        constraints: [ node.role == manager ]
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 80:80
+      - 8080:8080
+    networks:
+      - net_front
+    configs:
+      - source: traefik.toml
+        target: /etc/traefik/traefik.toml
