@@ -11,7 +11,7 @@ configs:
 services:
 
   socat:
-    image: devmtl/socatproxy:edge_7d488de8f136c16d0170af2a3452ee7c6e6b9791
+    image: devmtl/socatproxy:1.0B
     networks:
       - ntw_front
     volumes:
