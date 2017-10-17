@@ -11,7 +11,13 @@ configs:
 services:
   traefik:
     image: traefik:1.4.0-alpine
-    command: --docker --docker.swarmmode --docker.domain=${DOMAIN} --docker.watch --web --web.metrics.prometheus --web.metrics.prometheus.buckets="0.1,0.3,1.2,5.0"
+    command: --docker \
+      --docker.swarmmode \
+      --docker.domain=traefik \
+      --docker.watch \
+      --web \
+      --web.metrics.prometheus \
+      --web.metrics.prometheus.buckets="0.1,0.3,1.2,5.0"
     deploy:
       placement:
         constraints: [ node.role == manager ]
