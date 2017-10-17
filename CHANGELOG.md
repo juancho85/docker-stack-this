@@ -4,9 +4,10 @@
 
 **Impact monorepo**: `traefik_stack1`
 
-- `traefik_stack1` is based on `traefik-manager-noacme`
 - Running Traefik 1.4.0
-- 
+- optimised socat (no bash)
+- `traefik_stack1` is based on `traefik-manager-noacme`
+- Minor readme
 
 ---
 
