@@ -1,4 +1,4 @@
-FROM traefik:1.3.8-alpine
+FROM traefik:1.4.0-alpine
 
 RUN apk update && apk upgrade && \
 	apk add --no-cache ca-certificates tzdata && \

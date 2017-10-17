@@ -2,9 +2,11 @@
 
 # 1.24
 
-**Impact monorepo**: `traefik-manager-noacme`
+**Impact monorepo**: `traefik_stack1`
 
-- wip
+- `traefik_stack1` is based on `traefik-manager-noacme`
+- Running Traefik 1.4.0
+- 
 
 ---
 

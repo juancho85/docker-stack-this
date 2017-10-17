@@ -2,8 +2,9 @@
 This project will run those services (Traefik, Portainer, Nginx, Caddy, Whoami) in one simple copy-paste command.
 
 #### Anything special about this mono repo?
-- This stack does not use ACME (TLS).
-- I decided to work on this as I still have issues in the project `traefik-manager` which use ACME.
+- This stack does not use ACME (https://). ACME is a pain while developping … reaching limits, etc.
+- I still have issues in the project `traefik-manager` which use ACME.
+- If you don’t want to use socat, see `traefik-manager-noacme`
 - See the [CHANGELOG.md](https://github.com/pascalandy/docker-stack-this/blob/master/CHANGELOG.md) at the root of this project.
 
 ## Time to deploy
