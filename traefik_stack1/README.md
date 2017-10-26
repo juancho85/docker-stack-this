@@ -12,22 +12,18 @@ This project will run those services (Traefik, Portainer, Nginx, Caddy, Whoami) 
 3. On **node1**, copy paste:
 
 ```
-# Create Swarm
-docker swarm init --advertise-addr $(hostname -i); docker node ls;
-# Install common apps
-apk update && apk upgrade && apk add nano curl bash git wget unzip ca-certificates;
-# Clone repo
-cd /root;
-git clone https://github.com/pascalandy/docker-stack-this.git;
-cd docker-stack-this;
-# Choose branch
-git checkout master;
-# Go to the actual project
-cd traefik_stack1; echo; pwd; echo; ls -AlhF;
-# Make scripts executable
-chmod +x runup; chmod +x rundown; chmod +x runctop;
-# Run the stack
-./runup;
+
+ENV_BRANCH=1.28
+ENV_MONOREPO=traefik_stack1
+
+# Setup alpine node + Create Docker Swarm
+source <(curl -s https://raw.githubusercontent.com/pascalandy/docker-stack-this/master/play-with-docker-init/alpine-setup.sh) && \
+sleep 5 && \
+
+git checkout "$ENV_BRANCH" && \
+cd "$ENV_MONOREPO" && \
+./runup.sh;
+
 ```
 
 This is it! Once it’s deploy you will see: 
