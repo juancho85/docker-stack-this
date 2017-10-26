@@ -1,11 +1,13 @@
 #!/bin/sh
 
-# Create Swarm
-docker swarm init --advertise-addr $(hostname -i) && \
-docker node ls && \
+# This script is made to be run on a fresh play-with-docker node
 
-# Install common apps
-apk update && apk upgrade && apk add nano curl bash git wget unzip openssl tzdata ca-certificates && \
+# create Swarm
+docker swarm init --advertise-addr $(hostname -i) && \
+
+# install common apps
+apk update && apk upgrade && \
+apk add nano bash git wget unzip openssl tzdata ca-certificates && \
 
 # set local time
 cp /usr/share/zoneinfo/America/New_York /etc/localtime && \
