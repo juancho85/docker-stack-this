@@ -3,7 +3,7 @@ version: "3.1"
 services:
 
   home:
-    image: abiosoft/caddy
+    image: abiosoft/caddy:0.10.10
     networks:
       - ntw_front
     volumes:
@@ -32,7 +32,7 @@ services:
       - "traefik.weight=10"
 
   who1:
-    image: nginx:alpine
+    image: nginx:1.13-alpine
     networks:
       - ntw_front
     volumes:
