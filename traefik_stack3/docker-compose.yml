@@ -28,9 +28,13 @@ services:
           - node.role == manager
       labels:
         - "traefik.port=5000"
-        - "traefik.backend=books"
         - "traefik.frontend.rule=Path:/books"
+        - "traefik.enable=true"
+        - "traefik.docker.network=traefik-net"
  
+
+
+
   movies:
     image: mlabouardy/movies-api
     networks:
@@ -41,8 +45,9 @@ services:
           - node.role == manager
       labels:
         - "traefik.port=5000"
-        - "traefik.backend=movies"
         - "traefik.frontend.rule=Path:/movies"
+        - "traefik.enable=true"
+        - "traefik.docker.network=traefik-net"
  
 networks:
   traefik-net:
