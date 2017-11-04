@@ -1,6 +1,9 @@
 - WIP 2017-11-03_23h55
 
-based on http://www.blog.labouardy.com/docker-swarm-networking-and-dynamic-reverse-proxy/
+**based on**:
+- https://github.com/mlabouardy/alb-gohttp://www.blog.labouardy.com/docker-swarm-networking-and-dynamic-reverse-proxy/
+- https://github.com/mlabouardy/alb-go
+
 
 ## Introduction
 This project will run those services (Traefik, Portainer, Nginx, Caddy, Whoami) in one simple copy-paste command. Please also refer the the [README](https://github.com/pascalandy/docker-stack-this/blob/master/README.md) at the root of this repo.
