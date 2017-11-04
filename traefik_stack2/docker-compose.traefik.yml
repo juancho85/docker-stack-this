@@ -20,7 +20,7 @@ secrets:
 services:
 
   traefik:
-    image: traefik:1.4.2
+    image: devmtl/traefikfire:1.4.2A
     deploy:
       replicas: 2
       placement:
