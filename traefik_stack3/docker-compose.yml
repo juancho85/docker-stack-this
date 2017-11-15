@@ -2,7 +2,7 @@ version: "3.3"
  
 services:
   traefik:
-    image: devmtl/traefikfire:1.4.2A
+    image: devmtl/traefikfire:1.4.3B
     ports:
       - 80:80
       - 8080:8080
