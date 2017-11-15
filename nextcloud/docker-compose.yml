@@ -4,8 +4,13 @@ networks:
   traefik-net:
     driver: overlay
 
+volumes:
+  vol_traefik:
+  vol_nextcloud_data:
+  vol_nextcloud_apps:
+  vol_nextcloud_config:
+    
 services:
-
   traefik:
     image: devmtl/traefikfire:1.4.3B
     deploy:
