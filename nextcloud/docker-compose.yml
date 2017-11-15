@@ -18,23 +18,22 @@ services:
       - "8080:8080"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
-      - "/mnt/data/traefik:/etc/traefik/"
+      - "vol_traefik:/etc/traefik/"
     command: traefik --loglevel=WARN
     networks:
-      - frontend
+      - ntw_front
 
   nextcloud:
     image: nextcloud:12.0.3-apache
     volumes:
-      - "/mnt/data/nextcloud/data:/var/www/html/data"
-      - "/mnt/data/nextcloud/custom_apps:/var/www/html/custom_apps"
-      - "/mnt/data/nextcloud/config:/var/www/html/config"
+      - "vol_nextcloud_data/data:/var/www/html/data"
+      - "vol_nextcloud_apps/custom_apps:/var/www/html/custom_apps"
+      - "vol_nextcloud_config:/var/www/html/config"
     deploy:
       labels:
         - "traefik.port=80"
-        - "traefik.frontend.rule=Host:cloud.example.com"
+        - "traefik.frontend.rule=Host:/"
         - "traefik.enable=true"
-        - "traefik.docker.network=swarm_frontend"
+        - "traefik.docker.network=ntw_front"
     networks:
-      - frontend
-      - backend
+      - ntw_front
