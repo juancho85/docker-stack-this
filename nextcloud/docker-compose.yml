@@ -7,7 +7,7 @@ networks:
 volumes:
   vol_traefik:
   vol_nextcloud_data:
-  vol_nextcloud_apps:
+  vol_nextcloud_custom_apps:
   vol_nextcloud_config:
     
 services:
@@ -31,8 +31,8 @@ services:
   nextcloud:
     image: nextcloud:12.0.3-apache
     volumes:
-      - "vol_nextcloud_data/data:/var/www/html/data"
-      - "vol_nextcloud_apps/custom_apps:/var/www/html/custom_apps"
+      - "vol_nextcloud_data:/var/www/html/data"
+      - "vol_nextcloud_custom_apps:/var/www/html/custom_apps"
       - "vol_nextcloud_config:/var/www/html/config"
     deploy:
       labels:
