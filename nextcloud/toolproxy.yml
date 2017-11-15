@@ -1,15 +1,15 @@
-version: "3.1"
+version: '3.3'
 
 networks:
   ntw_front:
-    driver: overlay
+    external: true
 
 volumes:
   vol_traefik:
   vol_nextcloud_data:
   vol_nextcloud_custom_apps:
   vol_nextcloud_config:
-    
+
 configs:
   traefik.toml:
     file: ./configs/traefik.toml
@@ -82,3 +82,26 @@ services:
         reservations:
           cpus: '0.05'
           memory: 64M
+
+
+  nextcloud:
+    image: nextcloud:12.0.3-apache
+    volumes:
+      - "vol_nextcloud_data:/var/www/html/data"
+      - "vol_nextcloud_custom_apps:/var/www/html/custom_apps"
+      - "vol_nextcloud_config:/var/www/html/config"
+    deploy:
+      labels:
+        - "traefik.port=80"
+        - "traefik.frontend.rule=Host:/"
+        - "traefik.enable=true"
+        - "traefik.docker.network=ntw_front"
+    networks:
+      - ntw_front
+
+#labels:
+#- "traefik.enable=false"
+#
+# by Pascal Andy | # https://twitter.com/askpascalandy
+# https://github.com/pascalandy/docker-stack-this
+#
