@@ -1,0 +1,35 @@
+version: "3.1"
+
+services:
+  traefik:
+    image: devmtl/traefikfire:1.4.3B
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "/mnt/data/traefik:/etc/traefik/"
+    command: traefik --loglevel=WARN
+    networks:
+      - frontend
+
+  nextcloud:
+    image: nextcloud:12.0.3-apache
+    volumes:
+      - "/mnt/data/nextcloud/data:/var/www/html/data"
+      - "/mnt/data/nextcloud/custom_apps:/var/www/html/custom_apps"
+      - "/mnt/data/nextcloud/config:/var/www/html/config"
+    deploy:
+      labels:
+        - "traefik.port=80"
+        - "traefik.frontend.rule=Host:cloud.example.com"
+        - "traefik.enable=true"
+        - "traefik.docker.network=swarm_frontend"
+    networks:
+      - frontend
+      - backend
