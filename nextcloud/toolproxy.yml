@@ -5,7 +5,6 @@ networks:
     external: true
 
 volumes:
-  vol_traefik:
   vol_nextcloud_data:
   vol_nextcloud_custom_apps:
   vol_nextcloud_config:
@@ -93,7 +92,7 @@ services:
     deploy:
       labels:
         - "traefik.port=80"
-        - "traefik.frontend.rule=Host:/"
+        - "traefik.frontend.rule=PathPrefixStrip:/nextcloud"
         - "traefik.enable=true"
         - "traefik.docker.network=ntw_front"
     networks:
