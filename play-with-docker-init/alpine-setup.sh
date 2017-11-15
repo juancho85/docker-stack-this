@@ -18,7 +18,7 @@ rm -rf /var/cache/apk/* && sleep 1                                  && \
 docker swarm init --advertise-addr $(hostname -i)                   && \
 
 # Clone repo
-cd /root && \
+cd /root                                                            && \
 git clone https://github.com/pascalandy/docker-stack-this.git       && \
 cd docker-stack-this                                                && \
 
