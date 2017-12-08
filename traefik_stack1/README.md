@@ -12,17 +12,15 @@ This project will run those services (Traefik, Portainer, Nginx, Caddy, Whoami) 
 3. On **node1**, copy paste:
 
 ```
-
-ENV_BRANCH=1.33
+ENV_BRANCH=1.34
 ENV_MONOREPO=traefik_stack1
 
-# Setup alpine node + Create Docker Swarm
+# Setup alpine node and docker swarm
 
 source <(curl -s https://raw.githubusercontent.com/pascalandy/docker-stack-this/master/play-with-docker-init/alpine-setup.sh) && sleep 2 && \
 git checkout "$ENV_BRANCH" && \
 cd "$ENV_MONOREPO" && \
 ./runup.sh;
-
 ```
 
 This is it! Once deployed, you will see: 
