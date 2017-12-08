@@ -32,8 +32,9 @@ services:
       labels:
         - "traefik.enable=false"
 
+# recent images:
 # devmtl/traefikfire:1.4.3B
-# traefik:1.5.0-rc1-alpine
+# traefik:1.5.0-rc2-alpine
 # traefik:1.4.5-alpine
 
   traefik:
