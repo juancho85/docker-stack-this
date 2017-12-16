@@ -1,5 +1,7 @@
 version: "3.4"
+
 services:
+
   traefik_init:
     image: traefik:1.4@sha256:9c299d9613cb01564c8219f4bc56ecc55f30d8f06d35cf3ecf83a85426c13225
     command:
@@ -16,7 +18,7 @@ services:
       - "--acme.email=contact@jmaitrehenry.ca"
       - "--docker"
       - "--docker.swarmmode"
-      - "--docker.domain=jmaitrehenry.ca"
+      - "--docker.domain=example.ca"
       - "--docker.watch"
       - "--consul"
       - "--consul.endpoint=consul:8500"
@@ -28,6 +30,7 @@ services:
         condition: on-failure
     depends_on:
       - consul
+  
   traefik:
     image: traefik:1.4@sha256:9c299d9613cb01564c8219f4bc56ecc55f30d8f06d35cf3ecf83a85426c13225
     depends_on:
@@ -63,6 +66,7 @@ services:
         delay: 10s
       restart_policy:
         condition: on-failure
+  
   consul:
     image: consul
     command: agent -server -bootstrap-expect=1
