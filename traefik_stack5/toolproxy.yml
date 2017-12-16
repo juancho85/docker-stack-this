@@ -38,7 +38,7 @@ services:
 # traefik:1.4.5-alpine
 
   traefik:
-    image: devmtl/traefikfire:1.4.5A
+    image: traefik:1.5.0-rc2-alpine
     ports:
     - target: 80
       protocol: tcp
@@ -81,10 +81,17 @@ services:
         reservations:
           cpus: '0.05'
           memory: 64M
+      labels:
+        - "traefik.backend=traefik"
+        - "traefik.enable=true"
+        - "traefik.logLevel=DEBUG"
+        - "traefik.port=8080"
+        - "traefik.passHostHeader=true"
+        - "traefik.frontend.entryPoints=http"
+        - "traefik.backend.loadbalancer.method=wrr"
+        - "traefik.backend.loadbalancer.swarm=true"
 
-#labels:
-#- "traefik.enable=false"
-#
+
 # by Pascal Andy | # https://twitter.com/askpascalandy
 # https://github.com/pascalandy/docker-stack-this
 #

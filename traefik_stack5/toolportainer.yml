@@ -3,7 +3,7 @@ version: '3.1'
 services:
 
   portainer:
-    image: portainer/portainer:1.15.2
+    image: portainer/portainer:1.15.5
     networks:
       - ntw_front
     volumes:
@@ -24,14 +24,16 @@ services:
           cpus: '0.05'
           memory: 10M
       labels:
-        - "traefik.backend=portainer"
         - "traefik.frontend.rule=PathPrefixStrip:/portainer"
+        - "traefik.backend=portainer"
         - "traefik.port=9000"
-        - "traefik.enable=true"
-        - "traefik.frontend.entryPoints=http"
-        - "traefik.docker.network=ntw_front"
         - "traefik.weight=10"
-        - "traefik.frontend.passHostHeader=true"
+        - "traefik.enable=true"
+        - "traefik.passHostHeader=true"
+        - "traefik.docker.network=ntw_front"
+        - "traefik.frontend.entryPoints=http"
+        - "traefik.backend.loadbalancer.swarm=true"
+        - "traefik.backend.loadbalancer.method=drr"
 
 networks:
   ntw_front:
