@@ -7,6 +7,27 @@ set -o nounset
 # Functions
 ###############################################################################
 
+# setup network
+NTW_FRONT=webgateway
+
+if [ ! "$(docker network ls --filter name=$NTW_FRONT -q)" ]; then
+    docker network create --driver overlay --attachable --opt encrypted "$NTW_FRONT"
+    echo "Network: $NTW_FRONT was created."
+else
+    echo "Network: $NTW_FRONT already exist."
+fi
+
+# setup network
+NTW_FRONT=traefik
+
+if [ ! "$(docker network ls --filter name=$NTW_FRONT -q)" ]; then
+    docker network create --driver overlay --attachable --opt encrypted "$NTW_FRONT"
+    echo "Network: $NTW_FRONT was created."
+else
+    echo "Network: $NTW_FRONT already exist."
+fi
+
+# launch the stack
 echo; echo;
 docker stack deploy --compose-file docker-compose.yml traefik
 
