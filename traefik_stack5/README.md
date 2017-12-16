@@ -13,8 +13,8 @@ This project will run those services (Traefik, Portainer, Nginx, Caddy, Whoami) 
 
 ## Launching the Docker stack
 1. Go to http://labs.play-with-docker.com/ 
-2. Create **a cluster** (3 managers + 2 workers). Wait for he nodes to provision
-3. On **manage 1**, copy paste:
+2. Create **one instance** and wait for thethe node to provision
+3. On **node1**, copy paste:
 
 ```
 ENV_BRANCH=1.34
@@ -27,8 +27,6 @@ git checkout "$ENV_BRANCH" && \
 cd "$ENV_MONOREPO" && \
 ./runup.sh;
 ```
-
-ISSUE HERE. 
 
 This is it! Once deployed, you will see: 
 
