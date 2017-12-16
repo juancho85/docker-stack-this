@@ -21,5 +21,7 @@ rm -rf /var/cache/apk/* && sleep 1                                  && \
 cd /root                                                            && \
 git clone https://github.com/pascalandy/docker-stack-this.git       && \
 cd docker-stack-this                                                && \
-echo; echo "The host is setup"                                      && \
-echo "Time to select the mono repo: "; echo                         ;
+echo                                                                && \
+echo "The host is setup"                                            && \
+echo "Time to select the mono repo: "                               && \
+echo                                                                ;
