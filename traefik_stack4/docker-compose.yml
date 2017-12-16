@@ -10,12 +10,6 @@ services:
       - "--entrypoints=Name:http Address::80 Redirect.EntryPoint:https"
       - "--entrypoints=Name:https Address::443 TLS"
       - "--defaultentrypoints=http,https"
-      - "--acme"
-      - "--acme.storage=traefik/acme/account"
-      - "--acme.entryPoint=https"
-      - "--acme.OnHostRule=true"
-      - "--acme.onDemand=false"
-      - "--acme.email=contact@jmaitrehenry.ca"
       - "--docker"
       - "--docker.swarmmode"
       - "--docker.domain=example.ca"
@@ -40,7 +34,6 @@ services:
       - "--consul"
       - "--consul.endpoint=consul:8500"
       - "--consul.prefix=traefik"
-      - "--acme.storage=traefik/acme/account"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
@@ -74,8 +67,8 @@ services:
       - consul-data:/consul/data
     environment:
       - CONSUL_LOCAL_CONFIG={"datacenter":"us_east2","server":true}
-      - CONSUL_BIND_INTERFACE=127.0.0.1
-      - CONSUL_CLIENT_INTERFACE=127.0.0.1
+      - CONSUL_BIND_INTERFACE=eth0
+      - CONSUL_CLIENT_INTERFACE=eth0
     deploy:
       replicas: 1
       placement:
